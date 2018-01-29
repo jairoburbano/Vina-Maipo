@@ -1,0 +1,102 @@
+/*------------------------------------*\
+$SETTINGS
+\*------------------------------------*/
+
+/* ============== // Transition // ============== */
+
+$transition-time: .3s;
+$transition-method: ease-in-out;
+
+
+/* ============== // FONTS // ============== */
+@font-face {
+    font-family: 'Cooper-Medium';
+    src: url('../fonts/cooperhewitt-medium-webfont.eot');
+    src: url('../fonts/cooperhewitt-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewitt-medium-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewitt-medium-webfont.woff') format('woff'),
+         url('../fonts/cooperhewitt-medium-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewitt-medium-webfont.svg#cooper_hewittmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Cooper-Book';
+    src: url('../fonts/cooperhewitt-book-webfont.eot');
+    src: url('../fonts/cooperhewitt-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewitt-book-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewitt-book-webfont.woff') format('woff'),
+         url('../fonts/cooperhewitt-book-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewitt-book-webfont.svg#cooper_hewittbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Cooper-Bold';
+    src: url('../fonts/cooperhewitt-bold-webfont.eot');
+    src: url('../fonts/cooperhewitt-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewitt-bold-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewitt-bold-webfont.woff') format('woff'),
+         url('../fonts/cooperhewitt-bold-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewitt-bold-webfont.svg#cooper_hewittbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Cooper-Semibold';
+    src: url('../fonts/cooperhewitt-semibold-webfont.eot');
+    src: url('../fonts/cooperhewitt-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cooperhewitt-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/cooperhewitt-semibold-webfont.woff') format('woff'),
+         url('../fonts/cooperhewitt-semibold-webfont.ttf') format('truetype'),
+         url('../fonts/cooperhewitt-semibold-webfont.svg#cooper_hewittsemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Oranien';
+    src: url('../fonts/oranienbaum-webfont.eot');
+    src: url('../fonts/oranienbaum-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/oranienbaum-webfont.woff2') format('woff2'),
+         url('../fonts/oranienbaum-webfont.woff') format('woff'),
+         url('../fonts/oranienbaum-webfont.ttf') format('truetype'),
+         url('../fonts/oranienbaum-webfont.svg#oranienbaumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: Helvetica;
+    src: url(../fonts/HelveticaNeue.dfont);
+}
+@font-face {
+    font-family: Chino;
+    src: url(../fonts/KozGoPr6N-Medium.otf);
+}
+/* ============== // COLORS // ============== */
+$principal : #473e32;
+$darkgray : #383A3A;
+$gray : #4B4D4D;
+$lightgray : #657373;
+$lightergray : lighten(#899898, 30%);
+$nlightergray : #899898;
+$contraste : #CC814A;
+$twitter : #5E99B8;
+$facebook : #4F6C97;
+$youtube : #C03434;
+$hover : #A33729;
+$quote : #CB8049;
+$filter : #473e32;
+$categories: (
+    color1 : #a33729,
+    color2 : #cc814a,
+    color3 : #7a2aa0,
+    color4 : #937447,
+    color5 : #819b3b,
+    color6 : #f4bf6c,
+    color7 : #d490be
+);

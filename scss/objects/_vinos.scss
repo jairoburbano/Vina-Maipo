@@ -1,0 +1,941 @@
+/*------------------------------------*\
+$VINOS
+\*------------------------------------*/
+//Touch sin hover
+.touch {
+    .wine--list--item {
+        &:hover {
+            &::after {
+                opacity: 0;
+            }
+            .item--image {
+                transform: scale(1);
+            }
+            .item--text {
+                margin-top: 0px !important;
+                span, p {
+                    color: $principal;
+                }
+                svg {
+                    fill: $contraste;
+                }
+            }
+        }
+    }
+}
+.wine-menu {
+    li {
+        width: (100%/4) !important;
+    }
+}
+.wine__container {
+    &:first-child {
+        .wine--banner {
+            .wine--banner--text {
+                h3 {
+                    @include respond-to(desktop) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.wine--banner {
+    height: 250px;
+    background-size: cover;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        left: 50%;
+        transform: translate(-50%,0);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 16px 16px 0 16px;
+        border-color: lighten(#899898, 40%) transparent transparent transparent;
+        z-index: $level5;
+    }
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255,255,255,0);
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(247,248,248,1) 50%);
+        z-index: $level2;
+    }
+    @include less-than(tablet) {
+        &::after{
+            background: $lightergray;;
+        }
+        &::before {
+            border-color: $lightergray transparent transparent transparent;
+        }
+        &--image {
+            display: none;
+        }
+        &--text{
+            font-size: cr(18px);
+            h3 {
+                img {
+                    margin-bottom: 15px;
+                    max-height: 40px;
+                }
+            }
+        }
+    }
+}
+.wine--banner--image {
+    z-index: $level1;
+    img, svg {
+        width: auto;
+        height: 100%;
+        display: block;
+        min-width: 50%;
+        fill: $principal;
+    }
+}
+.wine--banner--text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: $level3;
+    color: $principal;
+    width: 96%;
+    font-size: cr(19px);
+    padding: 0;
+    @include respond-to(desktop) {
+        max-width: 700px;
+        width: 70%;
+        font-size: cr(24px);
+        padding: 20px;
+    }
+    h3 {
+        font-size: cr(48px);
+        color: white;
+        font-weight: normal;
+        font-family: Oranien;
+        margin-bottom: 15px;
+        color: $principal;
+        @include respond-to(desktop) {
+            margin-top: 50px;
+        }
+        img {
+            display: block;
+            width: 50%;
+            max-width: 240px;
+            max-height: 50px;
+            margin: auto;
+        }
+    }
+}
+.wine__list {
+    width: 100%;
+    &::after {
+        content: '';
+        display: block;
+        float: none;
+        clear: both;
+    }
+    /*Vinos recomendados*/
+}
+.wine__list__item {
+    height: 100%;
+    float: left;
+    text-align: center;
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+    color: $principal;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transition: all 300ms;
+        background: rgba(230,234,234,1);
+        background: radial-gradient(ellipse at center, rgba(230,234,234,1) 0%, rgba(255,255,255,1) 74%, rgba(255,255,255,1) 75%);
+    }
+    @include respond-to(desktop) {
+        &:hover {
+            &::after {
+                opacity: 1;
+                background: rgba(255,255,255,1);
+                background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(138,152,153,1) 100%);
+            }
+            &.wine-1-3 {
+                .wine__list__item__media {
+                    height: 390px;
+                }
+            }
+            &.wine-1-4 {
+                .wine__list__item__media {
+                    height: 365px;
+                }
+            }
+            &.wine-1-6 {
+                .wine__list__item__media {
+                    height: 330px;
+                }
+            }
+            &.wine-1-7 {
+                .wine__list__item__media {
+                    height: 290px;
+                }
+            }
+            .wine__list__item__text {
+                span, p {
+                    color: white;
+                }
+                svg {
+                    fill: white;
+                }
+            }
+        }
+    }
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: $principal;
+        z-index: 2;
+        position: relative;
+    }
+    &.wine-1-3 , &.wine-1-4, &.wine-1-6, &.wine-1-7 {
+        width: 100%;
+    }
+    &.wine-1-3 {
+        height: 400px;
+        @include respond-to(tablet) {
+            width: 33.33%;
+            height: 410px;
+            padding: 40px 0 20px;
+        }
+        @include respond-to(desktop) {
+            height: 544px;
+        }
+        .wine__list__item__media {
+            height: 300px;
+            @include respond-to(tablet) {
+                height: 270px;
+            }
+            @include respond-to(desktop) {
+                height: 350px;
+            }
+        }
+    }
+    &.wine-1-4 {
+        height: 470px;
+        @include respond-to(tablet) {
+            height: 290px;
+            width: 25%;
+            padding: 30px 0 20px;
+        }
+        @include respond-to(desktop) {
+            padding: 60px 0 20px;
+            height: 480px;
+        }
+        .wine__list__item__media {
+            height: 400px;
+            @include respond-to(tablet) {
+                height: 210px;
+            }
+            @include respond-to(desktop) {
+                height: 310px;
+            }
+        }
+    }
+    &.wine-1-6 {
+        height: 470px;
+        @include respond-to(tablet) {
+            height: 290px;
+            width: (100%/6);
+            padding: 30px 0 20px;
+        }
+        @include respond-to(desktop) {
+            height: 420px;
+            padding: 40px 0 20px;
+        }
+        .wine__list__item__media {
+            height: 400px;
+            @include respond-to(tablet) {
+                height: 210px;
+            }
+            @include respond-to(desktop) {
+                height: 280px;
+            }
+        }
+    }
+    &.wine-1-7 {
+        width: 100%;
+        height: 470px;
+        @include respond-to(tablet) {
+            height: 310px;
+            padding: 30px 0 20px;
+            width: (100%/7);
+        }
+        @include respond-to(desktop) {
+            height: 390px;
+            padding: 50px 0 20px;
+        }
+        .wine__list__item__media {
+            height: 350px;
+            @include respond-to(tablet) {
+                height: 210px;
+            }
+            @include respond-to(desktop) {
+                height: 240px;
+            }
+        }
+    }
+}
+.wine__list__item__text {
+    z-index: 3;
+    position: relative;
+    transition: all 300ms;
+    display: block;
+    text-align: center;
+    padding: 15px 5px 0;
+    @include less-than(desktop) {
+        font-size: cr(14px);
+        padding-top: 10px;
+        line-height: cr(15px);
+    }
+    span, p, strong {
+        transition: all 300ms;
+        display: block;
+    }
+    svg {
+        max-height: 60px;
+        max-width: 240px;
+        fill: $contraste;
+        transition: all 300ms;
+        display: block;
+        margin: auto;
+        @include less-than(desktop) {
+            max-height: 40px;
+            max-width: 150px;
+        }
+    }
+}
+.wine__list__item__media {
+    display: block;
+    transition: all 300ms;
+    img {
+        transition: all 300ms cubic-bezier(.4, 0, .2, 1);
+        transform-origin: center top;
+        height: 100%;
+    }
+}
+//Single Vinos
+.suggest {
+    height: 400px;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $principal;
+        opacity: .2;
+        z-index: $level1;
+    }
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $principal;
+        z-index: 1;
+        opacity: .1;
+    }
+    &--content {
+        width: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        text-align: center;
+        font-size: cr(28px);
+        color: white;
+        z-index: $level2;
+        h3 {
+            font-size: cr(74px);
+        }
+        .btn {
+            margin-top: 20px;
+        }
+    }
+    @include less-than(desktop) {
+        height: 240px;
+        &--content {
+            h3 {
+                font-size: cr(48px);
+            }
+            .cutthis {
+                display: none;
+            }
+        }
+    }
+    @include less-than(tablet) {
+        height: 320px;
+        &--content {
+            font-size: cr(18px);
+            h3 {
+                font-size: cr(32px);
+                margin-bottom: 10px;
+            }
+            .cutthis {
+                display: none;
+            }
+            .big {
+                height: 36px !important;
+                line-height: cr(34px) !important;
+                font-size: cr(14px);
+            }
+        }
+    }
+}
+.more-wines {
+    background: white;
+    overflow: hidden;
+    .title {
+        background: $lightergray;
+        text-align: center;
+        font-size: cr(36px);
+        line-height: cr(100px);
+        position: relative;
+        color: $principal;
+        &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 16px 16px 0 16px;
+            border-color: $lightergray transparent transparent transparent;
+            position: absolute;
+            left: 50%;
+            bottom: -16px;
+            transform: translate(-50%, 0);
+            z-index: $level5;
+        }
+    }
+    @include less-than(tablet) {
+        &--carta {
+            display: none;
+        }
+    }
+    @include less-than(desktop) {
+        .title{
+            line-height: cr(60px);
+            font-size: cr(28px);
+        }
+    }
+}
+//Banner single vinos
+.banner-vino {
+    position: relative;
+    margin-bottom: 120px;
+    @include respond-to(tablet) {
+        margin-bottom: 60px;
+    }
+    @include respond-to(desktop) {
+        margin-bottom: 120px;
+    }
+    &.no-video {
+        @include less-than(tablet) {
+            margin-bottom: 60px;
+            .banner-vino--button {
+                display: none;
+            }
+            .banner-vino--redes {
+                bottom: -60px;
+            }
+        }
+    }
+    &::before {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(255,255,255,1);
+        background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(138,152,153,1) 100%);
+        z-index: -1;
+        height: 670px;
+        @include respond-to(tablet) {
+            height: 810px;
+        }
+        @include respond-to(desktop) {
+            height: 100%;
+        }
+    }
+    .specs {
+        font-size: cr(16px);
+        margin-bottom: 40px;
+        padding: 0 20px;
+        color: $principal;
+        @include less-than(tablet) {
+            width: 100%;
+            display: block;
+            padding: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .title {
+            margin-bottom: 5px;
+            @include less-than(tablet) {
+                text-align: left;
+            }
+            img, svg {
+                height: 36px;
+                display: inline-block;
+                fill: $principal;
+            }
+            svg {width: 36px; }
+            span {
+                font-family: Cooper-Semibold;
+            }
+        }
+    }
+    &--logo {
+        padding-top: 120px;
+        text-align: center;
+        svg {
+            max-width: 230px;
+            max-height: 55px;
+            fill: $contraste;
+        }
+        h2 {
+            text-align: center;
+            margin: auto;
+            display: block;
+            font-family: Oranien;
+            margin-bottom: -20px;
+            font-size: cr(38px);
+            height: 90px;
+            overflow: hidden;
+            span {
+                color: $principal;
+                font-size: cr(18px);
+                display: block;
+                margin-top: 10px;
+                height: 24px;
+            }
+        }
+    }
+    &--text {
+        width: 90%;
+        position: relative;
+        margin: 40px auto 0;
+        padding: 0;
+        @include respond-to(desktop) {
+            margin-top: 120px;
+            padding: 0 0 65px;
+        }
+        &--content {
+            padding-top: 30px;
+            position: relative;
+            &::after, &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 6px;
+                background: url(../img/dots-dark.svg) repeat-x;
+            }
+            &::before {
+                top: auto;
+                bottom: 0;
+                display: none;
+                @include respond-to(desktop) {
+                    display: block;
+                }
+            }
+        }
+        &__left, &__right {
+            width: 100%;
+            //            padding: 0 15%;
+            float: none;
+            margin: auto;
+            display: block;
+            @include respond-to(tablet) {
+                padding: 0 0 10px 0;
+            }
+            @include respond-to(desktop) {
+                width: 50%;
+            }
+        }
+        &__left {
+            position: relative;
+            margin-bottom: 40px;
+            @include respond-to(desktop) {
+                width: 50%;
+                padding-right: 120px;
+                float: left;
+                margin-bottom: 0;
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                width: 100%;
+                height: 6px;
+                background: url(../img/dots-dark.svg) repeat-x;
+                @include respond-to(desktop) {
+                    display: none;
+                }
+            }
+            &::after {
+                content: '';
+                display: block;
+                float: none;
+                clear: both;
+            }
+            .specs {
+                width: 50%;
+                float: left;
+                @include less-than(tablet) {
+                    width: 100%;
+                    float: none;
+                }
+                &:nth-child(2n-1) {
+                    clear: left;
+                }
+            }
+        }
+        &__right {
+            position: relative;
+            @include respond-to(desktop) {
+                width: 50%;
+                padding-left: 120px;
+                float: right;
+            }
+            .specs {
+                width: 100%;
+                clear: both;
+                text-align: center;
+                @include less-than(desktop) {
+                    margin: 20px 0;
+                    display: block;
+                    overflow: hidden;
+                    text-align: center;
+                }
+                @include less-than(tablet) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    /*Disponibilidad*/
+    .lugar {
+        position: absolute;
+        transform: translate(0, 0);
+        text-align: center;
+        bottom: auto;
+        top: -92px;
+        width: 100%;
+        left: 0;
+        padding: 0;
+        font-size: cr(14px);
+        @include respond-to(desktop) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            top: auto;
+            bottom: -50px;
+            width: 50%;
+            left: 50%;
+            font-size: cr(16px);
+            padding-left: 120px;
+            p {
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
+        }
+    }
+    &--image__center { //Imagen del vino
+        position: relative;
+        top: 8px;
+        margin-bottom: 120px;
+        z-index: $level4;
+        @include respond-to(desktop) {
+            position: absolute;
+            left: 50%;
+            top: -80px;
+            transform: translate(-50%, 0);
+            margin-bottom: 0;
+        }
+        img {
+            height: 480px;
+            display: block;
+            margin: auto;
+            @include respond-to(tablet) {
+                height: 610px;
+            }
+        }
+    }
+    &--redes, &--button {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        left: 0;
+        height: 60px;
+        bottom: -120px;
+        background: $nlightergray;
+        @include respond-to(tablet) {
+            bottom: -60px;
+            width: 50%;
+        }        
+        @include respond-to(desktop) {
+            //            height: 90px;
+            //            bottom: -120px;
+            background-color: transparent;
+        }
+        .content-redes, .content-button {
+            width: 100%;
+            position: relative;
+            top: 50%;
+            right: 0;
+            padding: 0;
+            text-align: center;
+            transform: translateY(-50%);
+            color: white;
+            @include respond-to(desktop) {
+//                position: absolute;
+//                top: 20px;
+                position: relative;
+                top: auto;
+                right: auto;
+                text-align: right;
+                padding: 22px 0px 0;
+                transform: translateY(0);
+                color: $principal;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            p {
+                display: inline-block;
+                margin-bottom: 0;
+            }
+            a {
+                width: 32px;
+                display: inline-block;
+                margin-left: 5px;
+                svg {
+                    width: 32px;
+                    height: 32px;
+                    fill: white;
+                    @include respond-to(desktop) {
+                        fill: $principal;
+                    }
+                    .icono {
+                        fill: white;
+                        @include respond-to(desktop) {
+                            fill: $principal;
+                        }
+                    }
+                }
+                &:hover {
+                    svg {
+                        background: $principal;
+                        fill: white;
+                        .icono {
+                            fill: $principal;
+                            @include respond-to(desktop) {
+                                fill: white;
+                            }
+                        }
+                    }
+                }
+            }
+            .btn {
+                width: calc(50% - 10px);
+                max-width: 160px;
+                color: white;
+                border: 2px solid white;
+                display: inline-block;
+                padding: 0;
+                height: 38px;
+                line-height: cr(38px);
+                @include respond-to(desktop) {
+                    color: $principal;
+                    border: 2px solid $principal;
+                    margin: 0 5px;
+                }
+                &:hover {
+                    background: white;
+                    color: $principal;
+                    @include respond-to(desktop) {
+                        background: $principal;
+                        color: white;
+                    }
+                }
+            }
+        }
+        .content-redes {
+            @include respond-to(desktop) {
+//                top: 23px;
+//                justify-content: flex-end;
+//                padding-right: 130px;
+            }
+        }
+    }
+    &--button {
+        background: rgb(173,184,184);
+        float: none;
+        display: block;
+        width: 100%;
+        bottom: -60px;
+        @include respond-to(tablet) {
+            float: right;
+            right: 0;
+            left: auto;
+            width: 50%;
+
+        }
+        @include respond-to(desktop) {
+            background: transparent;
+        }
+        .content-button {
+            left: auto;
+            right: 0;
+            text-align: left;
+            padding-right: 0;
+            @include less-than(desktop) {
+                text-align: center;
+            }
+            a {
+                vertical-align: top;
+                @include less-than(desktop) {
+                    width: 100%;
+                    height: 60px;
+                    margin: 0;
+                    border: none;
+                    line-height: 60px;
+                }
+                &:last-child {
+                    @include less-than(tablet) {
+                        display: none;
+                    }
+                }
+                &:hover {
+                    @include less-than(desktop) {
+                        background: rgb(173,184,184);
+                    }
+                }
+            }
+        }
+    }
+}
+/*Necesitas ayuda single vino*/
+.box__vino {
+    @include less-than(tablet) {
+        height: 70px;
+        min-height: 60px;
+    }
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $principal;
+        z-index: 1;
+        opacity: .1;
+    }
+    .box--text{
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        @include respond-to(tablet) {
+            display: block;
+        }
+        h3, .btn {
+            @include less-than(tablet) {
+                margin-bottom: 0;
+            }
+        }
+        h3 {
+            @include less-than(tablet) {
+                padding-right: 10px;
+            }
+        }
+    }
+}
+.wine--list__small {
+    .wine__list__item {
+        @include respond-to(desktop) {
+            padding: 60px 0 20px;
+            height: 534px;
+            &:hover {
+                &.wine-1-1, &.wine-1-2, &.wine-1-3 { 
+                    .wine__list__item__media {
+                        height: 435px;
+                    }
+                    .wine__list__item__text {
+                        strong {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+        &.wine-1-1, &.wine-1-2, &.wine-1-3 {
+            height: 400px;
+            width: 100%;
+            @include respond-to(tablet) {
+                width: 33.33%;
+                padding: 40px 0 20px;
+            }
+            @include respond-to(desktop) {
+                height: 544px;
+            }
+            .wine__list__item__media {
+                height: 300px;
+                display: block;
+                transition: all 300ms;
+                @include respond-to(tablet) {
+                    height: 270px;
+                }
+                @include respond-to(desktop) {
+                    height: 350px;
+                }
+                img {
+                    height: 100%;
+                }
+            }
+        }
+        &.wine-1-1 {
+            @include respond-to(desktop) {
+                width: 100%;
+            }
+        }
+        &.wine-1-2 {
+            @include respond-to(desktop) {
+                width: 50%;
+            }
+        }
+    }
+}

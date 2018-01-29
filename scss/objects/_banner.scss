@@ -1,0 +1,206 @@
+/*------------------------------------*\
+$BANNER
+\*------------------------------------*/
+//Banners alto pantalla
+.banner {
+    position: relative;
+    background-size: cover;
+    height: 100%;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $filter;
+        opacity: .4;
+        z-index: $level2; 
+    }
+    &.banner--home {
+        @include less-than(tablet) {
+            h2 {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            .banner--text {
+                padding: 20px 0;
+                @include font-size(18px, 22px);
+            }
+        }
+    }
+    &.inside { //Banner de paginas internas
+        .banner--text {
+            max-width: 900px;
+            font-size: cr(28px);
+            @include less-than(tablet) {
+                font-size: cr(18px);
+            }
+        }
+    }
+    &.mobile-height { //Banner de paginas internas
+        @include less-than(tablet) {
+            height: 320px !important;
+            .banner--text {
+                padding: 0;
+            }
+        }
+    }
+    &.dotless {
+        .banner--text {
+            &::after, &::before {
+                display: none;
+            }
+        }
+    }
+    /*Buscador Lo ultimo*/
+    &.banner--search {
+        .banner--text {
+            &::before {
+                bottom: 100px;
+                @include respond-to(tablet) {
+                    bottom: 120px;
+                }
+            }
+            &::after {
+                bottom: 90px;
+                @include respond-to(tablet) {
+                    bottom: 130px;
+                }
+            }
+        }
+    }
+    &--text {
+        max-width: 740px;
+        width: 85%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: cr(34px);
+        color: white;
+        font-family: Cooper-Book;
+        padding: 35px 0;
+        z-index: $level3;
+        line-height: 1.1;
+        h2 {
+            font-size: cr(74px);
+            font-weight: normal;
+            font-family: Oranien;
+            line-height: 1;
+            display: block;
+            &.fixsize {
+                @include less-than(tablet) {
+                    max-width: 180px;
+                    margin: auto;
+                }
+            }
+        }
+        &::after, &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: url(../img/dots.svg) repeat-x;
+        }
+        &::after {
+            top: auto;
+            bottom: 0;
+        }
+        @include less-than(desktop) {
+            font-size: cr(28px);
+            padding: 35px 0;
+            h2 {
+                font-size: cr(48px);
+            }
+        }
+        @include less-than(tablet) {
+            font-size: cr(18px);
+            padding: 20px 0;
+            &::after {
+                bottom: 0;
+            }
+            &::before {
+                top: 0;
+            }
+            h2 {
+                font-size: cr(32px);
+            }
+        }
+    }
+    .btn {
+        height: 42px;
+        font-family: Cooper-Book;
+        @include less-than(tablet) {
+            height: 36px;
+            margin-top: 20px;
+        }
+    }
+}
+.banner--inside {
+    position: relative;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $filter;
+        opacity: .4;
+        z-index: 1; 
+    }
+    h2 {
+        position: relative;
+        z-index: 2;
+    }
+}
+//banner noticias
+.banner-news {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-position: center top;
+    z-index: -1;
+    &::after {
+        display: none;
+    }
+    &--content {
+        width: 100%;
+        height: 480px;
+        position: relative;
+        background-color: transparent;
+        &::after {
+            display: none;
+        }
+        h2 {
+            font-size: cr(48px);
+        }
+        @include less-than(tablet) {
+            h2 {
+                font-size: cr(28px);
+            }
+        }
+    }
+}
+//Box home 50%
+.box--half, .box__special {
+    background-size: cover;
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $filter;
+        z-index: 1;
+        opacity: .2;
+    }
+}

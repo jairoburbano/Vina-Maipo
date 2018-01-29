@@ -1,0 +1,70 @@
+/*------------------------------------*\
+$DROPDOWN
+\*------------------------------------*/
+.dropdown {
+    float: right;
+    width: 250px;
+    z-index: $level3;
+    position: relative;
+    &.active {
+        background: white;
+        span {
+            color: $principal;
+        }
+    }
+    li {
+        cursor: pointer;
+        font-size: cr(20px);
+        position: relative;
+        width: 100%;
+        display: block;
+        span {
+            display: block;
+            width: 100%;
+            padding-right: 15px;
+            svg {
+                stroke: white;
+                position: absolute;
+                right: 13px;
+                top: 50%;
+                transform: translate(0, -50%);
+                width: 20px;
+                height: 14px;
+                transition: all 300ms;
+            }
+        }
+        .dropdown--inside {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            width: 100%;
+            a {
+                color: $principal;
+                background: white;
+                text-align: left;
+                font-size: cr(16px);
+                height: 38px;
+                line-height: cr(38px);
+                padding: 0 15px;
+                width: 100%;
+                transition: all 300ms;
+                display: block;
+                &:hover {
+                    color: white;
+                    background: $hover;
+                }
+            }
+        }
+    }
+    //CONTACTO
+    &--contact {
+        width: 100%;
+        span {
+            height: 40px !important;
+            line-height: cr(38px);
+            text-align: left;
+            padding: 0 10px;
+        }
+    }
+}

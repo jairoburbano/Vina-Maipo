@@ -1,0 +1,300 @@
+/*------------------------------------*\
+$HISTORIA
+\*------------------------------------*/
+.content {
+    position: relative;
+}
+//Secion item
+.item {
+    //Banner ancla
+    &::after {
+        content: '';
+        display: block;
+        float: none;
+        clear: both;
+    }
+    @include less-than(desktop) {
+        margin-top: 40px;
+    }
+    @include less-than(tablet) {
+        margin-top: 30px;
+    }
+}
+.item__banner {
+    position: relative;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $filter;
+        opacity: .2;
+        z-index: $level2;
+    }
+}
+.item__banner__image {
+    z-index: $level1;
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+.item__banner__text {
+    @include center;
+    padding: 20px;
+    z-index: $level3;
+    text-align: center;
+    @include less-than(desktop) {
+        padding: 25px 20px;
+    }
+    @include less-than(tablet) {
+        width: 100%;
+        &::after, &::before {
+            display: none;
+        }
+    }
+    h3 {
+        font-size: cr(48px);
+        color: white;
+        font-weight: normal;
+        font-family: Oranien;
+        @include less-than(desktop) {
+            font-size: cr(28px);
+        }
+    }
+    &::after, &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: url(../img/dots.svg) repeat-x;
+    }
+    &::before {
+        top: auto;
+        bottom: 0;
+    }
+}
+//Items historia
+.item__single {
+    width: 100%;
+    clear: both;
+    position: relative;
+    color: $principal;
+    padding: 0 15px 20px;
+    @include respond-to(desktop) {
+        padding: 0;
+    }
+    &:nth-child(odd) {
+        .item__single__text {
+            right: 0;
+        }
+        .item__single__image {
+            @include respond-to(desktop) {
+                float: left;
+            }
+        }
+    }
+    &:nth-child(even) {
+        .item__single__text {
+            left: 0;
+        }
+        .item__single__image {
+            @include respond-to(desktop) {
+                float: right;
+                &::after {
+                    border-width: 25px 0 25px 25px;
+                    border-color: transparent transparent transparent #ffffff;
+                    left: -1px;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+//Items valles
+.valles {
+    .item__single {
+        width: 100%;
+        clear: both;
+        position: relative;
+        &:nth-child(even) {
+            .item__single__text {
+                right: 0;
+                left: auto;
+            }
+            .item__single__image {
+                @include respond-to(desktop) {
+                    float: left;
+                    &::after {
+                        border-width: 25px 25px 25px 0;
+                        border-color: transparent #ffffff transparent transparent;
+                        right: -1px;
+                        left: auto;
+                    }
+                }
+            }
+        }
+        &:nth-child(odd) {
+            .item__single__text {
+                left: 0;
+                right: auto;
+            }
+            .item__single__image {
+                @include respond-to(desktop) {
+                    float: right;
+                    &::after {
+                        border-width: 25px 0 25px 25px;
+                        border-color: transparent transparent transparent #ffffff;
+                        left: 0;
+                        right: auto;
+                    }
+                }
+            }
+        }
+        &:last-child {
+            @include less-than(desktop) {
+                padding-bottom: 40px;
+            }
+        }
+    }
+}
+.item__single__text {
+    float: right;
+    width: 40%;
+    padding: 0 70px;
+    @include vertical;
+    font-size: cr(18px);
+    @include less-than(desktop) {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0,0);
+        float: none;
+        max-width: 370px;
+        width: 100%;
+        margin: auto;
+        padding: 20px 0 30px 0;
+    }
+    //Firma de contenido
+    img {
+        display: block;
+        margin: auto;
+    }
+    h4 {
+        font-size: cr(28px);
+        font-family: Oranien;
+        font-weight: normal;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    p {
+        //Margen de parrafos especial historia
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &.icon {
+            font-size: cr(16px);
+            padding-left: 45px;
+            margin: 15px 0;
+            &.icon__weather {
+                background: url(../img/weather.svg) no-repeat;
+            }
+            &.icon__terrain {
+                background: url(../img/terrain.svg) no-repeat;
+            }
+        }
+        &.subtitle {
+            font-size: cr(16px);
+        }
+    }
+}
+
+.item__single__image {
+    float: right;
+    width: 60%;
+    overflow: hidden;
+    position: relative;
+    img {
+        width: 100%;
+        height: auto !important;
+    }
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 25px 25px 25px 0;
+        border-color: transparent #ffffff transparent transparent;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    @include less-than(desktop) {
+        max-width: 500px;
+        width: 100%;
+        float: none;
+        margin: auto;
+        &::after {
+            right: auto;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, 0);
+            border-width: 25px 25px 0 25px;
+            border-color: #ffffff transparent transparent transparent;
+        }
+    }
+    @include less-than(tablet) {
+        &::after {
+            border-width: 13px 11px 0 11px;
+        }
+    }
+}
+
+
+
+
+
+
+//Fix margen historia tablet
+.content--historia {
+    @include less-than(desktop) {
+        margin-top: -40px;
+    }
+    @include less-than(tablet) {
+        margin-top: -30px;
+    }
+}
+.wines-slider {
+    .flex-control-paging {
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        display: block;
+        text-align: center;
+        li {
+            display: inline-block;
+            a {
+                margin: 0 5px;
+                cursor: pointer;
+                text-indent: -9999px;
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: white;
+                opacity: .6;
+                &.flex-active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

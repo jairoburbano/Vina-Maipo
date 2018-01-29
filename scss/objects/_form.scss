@@ -1,0 +1,197 @@
+/*------------------------------------*\
+$FORM
+\*------------------------------------*/
+.formulario {
+    &::after {
+        content: '';
+        display: block;
+        float: none;
+        clear: both;
+    }
+    .input-group {
+        width: 100%;
+        height: 36px;
+        display: block;
+        input, textarea, select {
+            width: 100%;
+            height: 36px;
+            display: block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0 10px;
+            font-size: cr(14px);
+            border-radius: 0;
+            &:focus {
+                outline: 0;
+            }
+        }
+        &.send {
+            width: 90px;
+            border: 2px solid white;
+            text-align: center;
+            transition: all 300ms;
+            input {
+                padding: 0;
+                line-height: cr(32px);
+                background-color: transparent;
+                font-family: Cooper-Medium;
+            }
+            &:hover {
+                background: white;
+                input {
+                    color: $principal;
+                }
+            }
+        }
+    }
+}
+.message {
+    height: 40px;
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: #8a9999;
+    color: white;
+    font-family: Oranien;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    @include respond-to(tablet) {
+        height: 50px;
+        bottom: -50px;
+        font-size: 30px;
+        line-height: 50px;
+    }
+}
+//Formulario Contacto
+.form-contact {
+    .input-group {
+        margin-bottom: 30px;
+        height: auto;
+        position: relative;
+        &::after {
+            content: '';
+            display: block;
+            float: none;
+            clear: both;
+        }
+        &.msg-error {
+            input {
+                border-color: #A33729;
+                background: rgba(163, 55, 41, 0.8);
+            }
+        }
+        label {
+            display: block;
+        }
+        input, textarea, select {
+            width: 100%;
+            height: 40px;
+            border: 2px solid white;
+            transition: all 300ms;
+            background-color: transparent;
+            &.hascontent {
+                background: rgba(255,255,255,0.2);
+            }
+            &:focus {
+                background: white;
+                border-color: white;
+                color: $principal;
+            }
+        }
+        &.send {
+            width: 200px;
+            height: 42px;
+            input {
+                border: 1px;
+                height: 38px;
+                line-height: cr(42px);
+            }
+        }
+        textarea {
+            height: 110px;
+            padding: 10px;
+        }
+        // .styled-select {
+        //     width: 100%;
+        //     position: relative;
+        //     &::after {
+        //         content: '';
+        //         position: absolute;
+        //         top: 35px;
+        //         right: 15px;
+        //         width: 0;
+        //         height: 0;
+        //         border-style: solid;
+        //         border-width: 10px 6px 0 6px;
+        //         border-color: $principal transparent transparent transparent;
+        //     }
+        //     select {
+        //         width: 100%;
+        //         min-width: 268px;
+        //         border: 0;
+        //         border-radius: 0;
+        //         height: 34px;
+        //         -webkit-appearance: none;
+        //         &:focus {
+        //             outline: none;
+        //         }
+        //     }
+        // }
+    }
+    p.validacion, p.msg-error {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        margin: 0;
+        font-size: cr(14px);
+    }
+}
+.form__select {
+    width: 100%;
+    position: relative;
+}
+.form__select--fake {
+    width: 100%;
+    outline: none;
+    padding: 8px 5px;
+    color: white;
+    border: 2px solid white;
+    position: relative;
+    @include respond-to(tablet) {
+        width: 100%;
+    }
+}
+.form__select--fake__icon {
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    width: 20px;
+    height: 12px;
+}
+.form__select--real {
+    z-index: 10;
+    -webkit-appearance: none;
+    height: 34px;
+    opacity: 0;
+    margin-bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px 5px;
+    option {
+        padding: 10px 5px;
+    }
+}
+input[type='text'],
+input[type='number'],
+textarea {
+    @include less-than(tablet) {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,34 @@
+/*------------------------------------*\
+$FLEXSLIDER
+\*------------------------------------*/
+.slider {
+    position: relative;
+}
+.navigation, .flex-direction-nav {
+    display: none;
+    .flex-next, .flex-prev {
+        width: 16px;
+        height: 32px;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translate(0, -50%);
+        z-index: $level3;
+        cursor: pointer;
+        svg {
+            width: 16px;
+            height: 32px;
+            stroke: #3D352B;
+        }
+    }
+    .flex-next {
+        left: auto;
+        right: 20px;
+    }
+    @include less-than(tablet) {
+        display: block;
+    }
+}
+.flex-control-paging {
+    display: none;
+}

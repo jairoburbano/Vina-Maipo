@@ -1,0 +1,212 @@
+/*------------------------------------*\
+$NAV
+\*------------------------------------*/
+//Touch sin hover
+.touch {
+    .menu {
+        li {
+            a {
+                &:hover {
+                    background-color: transparent;
+                    color: $principal;
+                    @include less-than(tablet) {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+.menu {
+    width: 100%;
+    height: 50px;
+    background: rgba(255,255,255,0.8);
+    margin-top: 25px;
+    position: relative;
+    &::after {
+        content: '';
+        display: block;
+        float: none;
+        clear: both;
+    }
+    li {
+        // width: (100%/5);
+        width: 19%;
+        text-align: center;
+        float: left;
+        @include less-than(tablet) {
+            width: 100%;
+        }
+        &:nth-child(3) {
+            margin-left: 24%;
+            @include less-than(tablet) {
+                margin-left: 0;
+            }
+        }
+        a {
+            height: 50px;
+            line-height: cr(55px);
+            color: $principal;
+            text-transform: uppercase;
+            font-size: cr(25px);
+            display: inline-block;
+            padding: 0 15px;
+            transition: all 300ms;
+            @include less-than(tablet) {
+                width: 100%;
+            }
+            @include respond-to(tablet) {
+                font-size: cr(14px);
+            }
+            &:hover {
+                background: $hover;
+                color: white;
+            }
+        }
+        &.current-menu-item {
+            a {
+                background: $hover;
+                color: white;
+            }
+        }
+    }
+    //Menu Mobile
+    &--mobile {
+        display: none;
+        width: 100%;
+        left: 0;
+        top: 25px;
+        position: relative;
+        height: 50px;
+        background: rgba(255,255,255,0.8);
+        .logo {
+            width: 125px;
+            height: 70px;
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            img {
+                width: 125px;
+                height: 70px;
+            }
+        }
+        .menutoggle {
+            float: right;
+            text-transform: uppercase;
+            padding: 0 20px;
+            height: 50px;
+            line-height: cr(50px);
+            border: none;
+            background-color: transparent;
+            font-size: cr(14px);
+            transition: all 300ms;
+            &:hover, &.active {
+                background: $hover;
+                color: white;
+            }
+        }
+        @include less-than(tablet) {
+            display: block;
+        }
+    }
+}
+//menu
+.content-menu {
+    @include less-than(tablet) {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: $principal;
+        margin-top: 0;
+        padding-top: 86px;
+        .menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: auto;
+            background-color: transparent;
+            li {
+                width: 100%;
+                &.logo {
+                    display: none;
+                }
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+//Menu fixed vinos e historia
+.menu-fixed {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    z-index: $level6;
+    font-family: Oranien;
+    transition: background 300ms;
+    background: rgba(220, 224, 224, 0.8);
+    &::after {
+        content: '';
+        display: block;
+        float: none;
+        clear: both;
+    }
+    &.historia-menu {
+        li {
+            a {
+                font-size: cr(18px);
+                position: relative;
+                line-height: 1;
+                span {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: block;
+                }
+                svg {
+                    fill: $principal;
+                }
+            }
+        }
+    }
+    li {
+        width: (100%/5);
+        float: left;
+        text-align: center;
+        height: 50px;
+        overflow: hidden;
+        a {
+            display: inline-block;
+            padding: 0 30px;
+            line-height: cr(50px);
+            color: $principal;
+            font-size: cr(26px);
+            transition: all 300ms;
+            text-align: center;
+            height: 50px;
+            &.active, &:hover {
+                background: white;
+            }
+            svg {
+                height: 30px;
+                max-width: 120px;
+                margin: 10px auto;
+            }
+        }
+    }
+    &.fixed {
+        background: rgba(#dbe0e0, .8);
+    }
+    @include less-than(tablet) {
+        display: none;
+    }
+}

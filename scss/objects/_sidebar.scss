@@ -1,0 +1,119 @@
+/*------------------------------------*\
+$SIDEBAR
+\*------------------------------------*/
+//Sidebar Vinos Single
+.sidebar {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    left: -300px;
+    z-index: $level6;
+    &.active {
+        .sidebar--button--icon {
+            &::after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+    &--button {/*Boton para hacer que aparezca el boton*/
+        width: 45px;
+        height: 190px;
+        position: absolute;
+        right: -45px;
+        top: 100px;
+        cursor: pointer;
+        &--icon {
+            width: 45px;
+            height: 45px;
+            background: $contraste;
+            position: relative;
+            &::after {
+                content: '';
+                width: 45px;
+                height: 45px;
+                background: url(../img/sidebar.svg) center center no-repeat;
+                display: block;
+            }
+        }
+        &--text {
+            width: 45px;
+            height: 145px;
+            background: white;
+            color: $principal;
+            p {
+                width: 120px;
+                transform: rotate(90deg);
+                transform-origin: 5% 118%;
+            }
+        }
+        @include less-than(tablet) {
+            top: 200px;
+        }
+    }
+    &--tab {
+        background: white;
+        &.here {
+            .sidebar--tab--items {
+                display: block;
+            }
+        }
+        &.active {
+            .title {
+                &::after {
+                    content: '-';
+                    font-size: cr(30px);
+                }
+            }
+        }
+        .title {
+            background: $lightergray;
+            height: 48px;
+            line-height: cr(48px);
+            font-family: Cooper-Medium;
+            padding: 0 20px;
+            position: relative;
+            cursor: pointer;
+            color: $principal;
+            &::after {
+                content: '+';
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translate(0, -50%);
+                color: $principal;
+                font-size: cr(22px);
+            }
+        }
+        &--items {
+            display: none;
+            a {
+                height: 48px;
+                line-height: cr(48px);
+                display: block;
+                color: $principal;
+                transition: all 300ms;
+                padding: 0 10px 0 30px;
+                &:hover, &.active {
+                    background: $hover;
+                    color: white;
+                }
+            }
+        }
+    }
+    @include less-than(desktop) {
+        transition: all 300ms;
+        height: 100%;
+        background: #333;
+        &.active {
+            left: 0;
+        }
+        &--content {
+            overflow-y: auto;
+            height: 100%;
+        }
+    }
+    @include less-than(tablet) {
+        width: 260px;
+        left: -260px;
+    }
+}

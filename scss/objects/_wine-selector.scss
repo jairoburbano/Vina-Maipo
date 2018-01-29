@@ -1,0 +1,197 @@
+/*------------------------------------*\
+$WINE-SELECTOR
+\*------------------------------------*/
+.lightbox--wine-select {
+    overflow: hidden;
+    &.change-css {
+        background: rgba(230,234,234,1);
+        background: radial-gradient(ellipse at center, rgba(230,234,234,1) 0%, rgba(255,255,255,1) 74%, rgba(255,255,255,1) 75%);
+        h2 {
+            color: $principal;
+        }
+        .icon-close {
+            svg {
+                fill: $principal;
+            }
+        }
+        .wine-selector__goback {
+            color: $principal;
+            svg {
+                fill: $principal;
+            }
+        }
+    }
+}
+.wine-selector {
+    width: 100%;
+    max-width: 720px;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 30px;
+    text-align: center;
+    transition: all 300ms;
+    background-size: cover;
+    &:not(:first-of-type) {
+        display: none;
+    }
+    &.selector-show {
+        opacity: 1 !important;
+        display: block !important;
+    }
+    &.wine-selector__origin {
+        background: url(../img/eligiendo/Color1_Lightbox.jpg);
+    }
+    &.wine-selector__two {
+        background: url(../img/eligiendo/Color2_Lightbox.jpg);
+    }
+    &.wine-selector__three {
+        background: url(../img/eligiendo/Color3_Lightbox.jpg);
+    }
+    &.wine-selector__four {
+        background: url(../img/eligiendo/Color4_Lightbox.jpg);
+    }
+}
+.wine-selector__title {
+    color: white;
+    font-weight: 400;
+    font-family: Oranien;
+    margin-bottom: 40px;
+    @include less-than(tablet) {
+        margin-bottom: 30px;
+    }
+}
+.wine-selector__instructions {
+    font-family: Cooper-Book;
+    color: white;
+    margin-bottom: 40px;
+    display: inline-block;
+    @include font-size(28px, 32px);
+    @include less-than(tablet) {
+        margin-bottom: 30px;
+        @include font-size(20px, 24px);
+    }
+}
+.wine-selector__start {
+    text-align: center;
+    font-family: Cooper-Medium;
+    color: white;
+}
+.wine-selector__start__icon {
+    width: 96px;
+    height: 130px;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: $level2;
+    cursor: pointer;
+    svg {
+        width: 90px;
+        height: 90px;
+    }
+}
+.wine-selector__progress {
+    position: absolute;
+    bottom: 23px;
+    right: 20px;
+    font-family: Cooper-Medium;
+    color: white;
+    @include font-size(14px, 16px);
+    @include less-than(tablet) {
+        bottom: 43px;
+    }
+}
+.wine-selector__options {
+    width: 100%;
+    text-align: center;
+}
+.wine-selector__option {
+    display: inline-block;
+    width: 33%;
+    font-family: Cooper-Medium;
+    color: white;
+    @include less-than(tablet) {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    &.option-inline {
+        @include less-than(tablet) {
+            width: 33%;
+            display: inline-block;
+            clear: none;
+            text-align: center;
+            float: left;
+            svg {
+                float: none;
+                margin: auto;
+            }
+        }
+    }
+    svg {
+        cursor: pointer;
+        width: 96px;
+        display: block;
+        height: 96px;
+        margin: 0 auto 10px;
+        @include less-than(tablet) {
+            width: 48px;
+            height: 48px;
+            float: left;
+            margin-right: 10px;
+        }
+    }
+    p {
+        @include less-than(tablet) {
+            float: left;
+            line-height: cr(48px);
+        }
+    }
+}
+.wine-selector__goback {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: Cooper-Medium;
+    color: white;
+    @include font-size(14px, 16px);
+    cursor: pointer;
+    svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+        margin-right: 10px;
+    }
+    @include less-than(tablet) {
+        bottom: 40px;
+    }
+}
+//Resultado vino
+.wine-selector__result {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    padding: 0 15px;
+    &__bottle {
+        width: 20%;
+        max-width: 80px;
+        float: left;
+        height: 270px;
+        overflow: hidden;
+        img {
+            width: auto !important;
+            max-height: 100%;
+            max-width: 100%;
+            display: block;
+            margin: auto;
+        }
+    }
+    &__text {
+        width: 80%;
+        max-width: 440px;
+        float: left;
+        text-align: center;
+        padding-left: 30px;
+    }
+}

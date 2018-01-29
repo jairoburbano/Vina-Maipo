@@ -1,0 +1,437 @@
+/*------------------------------------*\
+$A LA CARTA
+\*------------------------------------*/
+.recetas {
+    .isotope-content--item {
+        color:$principal;
+        text-align: center;
+        padding: 5px;
+        @include less-than(tablet) {
+            padding: 10px;
+        }
+    }
+}
+.main__container {
+    position: relative;
+    .filter__container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: $level4;
+        @include respond-to(desktop) {
+            position: relative;
+            top: auto;
+            left: auto;
+        }
+    }
+    .isotope-main {
+        padding-top: 50px;
+        @include respond-to(desktop) {
+            padding-top: 0;
+        }
+    }
+}
+.name-vino {
+    width: 100%;
+    height: 48px;
+    background: $lightergray;
+    line-height: cr(48px);
+    text-align: center;
+}
+.filters {
+    width: 100%;
+    height: 48px;
+    display: table;
+    table-layout: fixed;
+    @include less-than(tablet) {
+        display: none;
+        height: auto;
+    }
+    li {
+        display: table-cell;
+        line-height: cr(48px);
+        text-align: center;
+        background: $lightergray;
+        transition: all 300ms;
+        cursor: pointer;
+        transition: all 300ms;
+        &.active {
+            background: $hover;
+            color: white;
+        }
+        &:nth-child(2n) {
+            background: lighten(#899898, 20%);
+            &.active {
+                background: $hover;
+            }
+        }
+        @include less-than(tablet) {
+            display: block;
+        }
+    }
+}
+//Single a la carta
+.receta--descripcion {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #5E5242;
+    color: white;
+    height: 100px;
+    z-index: $level3;
+    @include less-than(tablet) {
+        height: auto;
+        padding: 20px 0;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: -16px;
+        transform: translate(-50%, 0);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 16px 16px 16px;
+        border-color: transparent transparent #5E5242 transparent;
+    }
+    &--left {
+        padding: 0 40% 0 20px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        font-size: cr(28px);
+        @include less-than(desktop) {
+            font-size: cr(21px);
+            padding-right: 250px;
+        }
+        @include less-than(tablet) {
+            position: relative;
+            width: 100%;
+            font-size: cr(18px);
+            padding: 0 30px;
+            text-align: center;
+            top: 0;
+            transform: translate(0, 0);
+            left: 0;
+        }
+    }
+    &--right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding-right: 20px;
+        transform: translate(0, -50%);
+        text-align: right;
+        @include less-than(tablet) {
+            position: relative;
+            width: 100%;
+            top: 0;
+            transform: translate(0, 0);
+            right: 0;
+            display: block;
+            padding: 0 20px;
+        }
+        &::after {
+            content: '';
+            display: block;
+            float: none;
+            clear: both;
+        }
+        .receta-icon {
+            display: inline-block;
+            margin-left: 30px;
+            @include less-than(tablet) {
+                width: 50%;
+                float: left;
+                margin: 0;
+                font-size: cr(16px);
+                line-height: cr(24px);
+                text-align: left;
+            }
+            svg {
+                height: 44px;
+                max-width: 58px;
+                display: block;
+                margin: auto;
+                margin-bottom: 10px;
+                @include less-than(tablet) {
+                    display: block;
+                    float: left;
+                    height: 24px;
+                    max-width: 32px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+.box__color {
+    background: white;
+    padding: 60px 0;
+    @include less-than(desktop) {
+        padding: 30px 70px;
+    }
+    @include less-than(tablet) {
+        padding: 20px;
+    }
+    &.preparacion {
+        .preparacion__content {
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            strong {
+                margin-top: 40px;
+                display: block;
+            }
+        }
+        ul {
+            li {
+                margin-bottom: 20px;
+                font-size: cr(18px);
+                background: url(../img/list-style.svg) left 7px no-repeat;
+                padding-left: 15px;
+                @include less-than(tablet) {
+                    font-size: cr(16px);
+                }
+            }
+        }
+    }
+    h2 {
+        text-align: center;
+        font-size: cr(48px);
+        margin-bottom: 20px;
+        @include less-than(desktop) {
+            font-size: cr(28px);
+        }
+    }
+    &--content {
+        max-width: 900px;
+        margin: auto;
+        &::after {
+            content: '';
+            display: block;
+            float: none;
+            clear: both;
+        }
+    }
+    &--left, &--right {
+        width: 50%;
+        float: left;
+        @include less-than(tablet) {
+            width: 100%;
+            float: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            background: url(../img/list-style.svg) left 5px no-repeat;
+            padding-left: 15px;
+            @include less-than(tablet) {
+
+            }
+            &.title {
+                background: none;
+            }
+            h3 {
+                @include less-than(tablet) {
+                    font-size: cr(22px);
+                }
+            }
+        }
+    }
+    &--left {
+        @include less-than(desktop) {
+            padding-right: 80px;
+        }
+    }
+    &--right {
+        padding-left: 110px;
+        @include less-than(desktop) {
+            padding-left: 80px;
+        }
+        @include less-than(tablet) {
+            margin-top: 0;
+            padding-left: 0;
+        }
+    }
+}
+.banner--inside {
+    height: 400px;
+    position: relative;
+    @include less-than(desktop) {
+        height: 300px;
+    }
+    @include less-than(tablet) {
+        height: 150px;
+    }
+    h2 {
+        font-size: cr(74px);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translate(0, -50%);
+        text-align: center;
+        color: white;
+        @include less-than(desktop) {
+            font-size: cr(48px);
+        }
+        @include less-than(tablet) {
+            font-size: cr(28px);
+        }
+    }
+}
+.redes-receta {
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $filter;
+        opacity: .4;
+        z-index: 1; 
+    }
+    .content-redes {
+        padding: 8px 10%;
+        width: 100%;
+        height: 48px;
+        @include less-than(tablet) {
+            padding: 8px 50px;
+            text-align: center;
+        }
+        @include less-than(desktop) {
+            padding: 8px 20px;
+            height: auto;
+            text-align: left;
+        }
+        &__left {
+            width: 70%;
+            float: left;
+            position: relative;
+            @include less-than(desktop) {
+                margin-top: -20px;
+                width: 50%;
+            }
+            @include less-than(tablet) {
+                margin-top: 0px;
+                width: 100%;
+            }
+        }
+        &__right {
+            width: 30%;
+            float: left;
+            @include less-than(desktop) {
+                width: 50%;
+            }
+        }
+        p {
+            @include less-than(desktop) {
+                width: 100%;
+                text-align: center;
+                clear: both;
+            }
+        }
+        .btn {
+            width: 280px;
+            float: right;
+            margin: -8px 0 0 0;
+            @include less-than(tablet) {
+                display: none;
+            }
+            @include less-than(desktop) {
+                width: 250px;
+            }
+        }
+        a {
+            &:hover {
+                svg {
+                    background: white;
+                }
+            }
+        }
+    }
+}
+.box--btn {
+    width: 520px;
+    margin: auto;
+    margin-top: 30px;
+    @include less-than(tablet) {
+        width: 100%;
+    }
+    &::after {
+        content: '';
+        display: block;
+        float: none;
+        clear: both;
+    }
+    .btn {
+        display: inline-block;
+        margin: 0;
+        width: 250px;
+        @include less-than(tablet) {
+            width: 100%;
+            margin: 0 auto 10px;
+        }
+    }
+}
+.dropdown-filters {
+    display: none;
+    background: $lightergray;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    color: $principal;
+    line-height: cr(50px);
+    cursor: pointer;
+    transition: all 300ms;
+    @include less-than(tablet) {
+        display: block;
+    }
+    &.active {
+        background: lighten(#899898, 20%);
+        svg {
+            opacity: 0;
+        }
+    }
+    svg {
+        width: 20px;
+        height: 14px;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0,-50%);
+        stroke: $principal;
+        transition: all 300mx;
+    }
+}
+.receta__title {
+    font-size: cr(28px);
+    color: white;
+    font-family: Cooper-Book;
+    margin-bottom: 20px;
+    @include respond-to(tablet) {
+        margin-bottom: 0;
+    }
+    @include less-than(desktop) {
+        font-size: cr(21px);
+        line-height: cr(24px);
+    }
+}
+.box__title {
+    font-size: cr(28px);
+}
+.js-mimaipo {
+    float: right;
+    width: 250px;
+    cursor: pointer;
+}
+.bg__color {
+    background: white;
+}

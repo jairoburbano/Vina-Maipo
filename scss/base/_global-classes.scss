@@ -1,0 +1,39 @@
+.wrap {
+	margin: auto;
+	width: cr(960px);
+}
+.only-mobile {
+    display: none;
+    @include less-than(tablet) {
+        display: block;
+    }
+}
+.no-mobile {
+	@include less-than(tablet) {
+		display: none;
+	}
+}
+.no-tablet {
+	@include less-than(desktop) {
+		display: none;
+	}
+}
+.no-desktop {
+    @include respond-to(desktop) {
+        display: none !important;
+    }
+}
+.line--botton {
+	position: relative;
+	&::before {
+	    content: '';
+	    position: absolute;
+	    left: 0;
+	    width: 100%;
+	    height: 6px;
+	    background: url(../img/dots.svg) repeat-x;
+	}
+	&::before {
+	    bottom: -10px;
+	}
+}

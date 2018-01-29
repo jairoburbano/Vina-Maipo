@@ -1,0 +1,55 @@
+/*------------------------------------*\
+$HEADER
+\*------------------------------------*/
+.header {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $level9;
+    //LENGUAJE
+    &.backoff {
+        z-index: $level4;
+    }
+    .box-lang {
+        position: absolute;
+        right: 10px;
+        top: 2px;
+        height: 21px;
+        a {
+            display: inline-block;
+            color: white;
+            padding: 0 5px;
+            font-size: cr(14px);
+            position: relative;
+            margin-top: -3px;
+            line-height: cr(21px);
+            &::after {
+                content: '';
+                position: absolute;
+                right: -5px;
+                top: 0;
+                width: 2px;
+                height: 18px;
+                background: white;
+            }
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        @include less-than(tablet) {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: auto;
+            top: auto;
+            text-align: center;
+            width: 100%;
+            display: none;
+            z-index: $level1;
+        }
+    }
+}

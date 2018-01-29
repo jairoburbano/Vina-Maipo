@@ -1,0 +1,282 @@
+/*------------------------------------*\
+$INDEX
+\*------------------------------------*/
+.box {
+    width: 100%;
+    min-height: 200px;
+    position: relative;
+    &::after {
+        content: '';
+        float: none;
+        display: block;
+        clear: both;
+    }
+    /*Eligiendo un viña maipo*/
+    &__special {
+        @include less-than(tablet) {
+            min-height: 70px !important;
+            padding: 0 5%;
+            h3, .btn {
+                width: 40%;
+                display: block;
+                margin-bottom: 0 !important;
+                float: left;
+            }
+            .btn {
+                float: right;
+            }
+        }
+    }
+    @include less-than(desktop) {
+        min-height: 160px;
+    }
+    &--half {
+        width: 50%;
+        float: left;
+        min-height: 320px;
+        position: relative;
+        @include less-than(desktop) {
+            width: 100%;
+            min-height: 240px;
+        }
+        @include less-than(tablet) {
+            min-height: 160px;
+        }
+    }
+    &--text {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        h3 {
+            font-size: cr(48px);
+            color: white;
+            margin-bottom: 25px;
+            font-weight: normal;
+            line-height: 1;
+            @include respond-to(desktop) {
+                padding: 0 20px;
+            }
+        }
+        @include less-than(desktop) {
+            max-width: 380px;
+            h3 {
+                font-size: cr(34px);
+                margin-bottom: 15px;
+            }
+        }
+        @include less-than(tablet) {
+            width: 90%;
+            &.second--box {
+                h3 {
+                    margin-bottom: 58px;
+                }
+            }
+            h3 {
+                font-size: cr(21px);
+                margin-bottom: 37px;
+            }
+        }
+    }
+    //Nuestras redes
+    .wrapper {
+        padding: 0 25px;
+        @include less-than(desktop) {
+            padding: 0 8px;
+        }
+        @include less-than(tablet) {
+            display: none;
+        }
+        &::after {
+            content: '';
+            display: block;
+            float: none;
+            clear: both;
+        }
+    }
+    /*Container redes*/
+    &--rss {
+        padding: 80px 0 60px 0;
+        h2 {
+            text-align: center;
+            font-size: cr(48px);
+            margin-bottom: 60px;
+            font-weight: normal;
+        }
+        @include less-than(desktop) {
+            padding: 40px 0 60px 0;
+            h2 {
+                font-size: cr(28px);
+                margin-bottom: 26px;
+            }
+        }
+        @include less-than(tablet) {
+            padding: 20px 0 0px 0;
+            h2 {
+                margin-bottom: 20px;
+            }
+        }
+        /*Redes mobile*/
+        &--mobile {
+            display: none;
+            padding: 0 20px;
+            .box--redes {
+                width: 100%;
+                display: block;
+                height: 48px;
+                margin: 0 0 20px 0;
+                line-height: cr(48px);
+                background: #f1f1f1;
+                color: $principal;
+                .rss {
+                    height: 48px;
+                    width: 48px;
+                    margin-right: 10px;
+                    background-position: center center;
+                }
+            }
+            @include less-than(tablet) {
+                display: block;
+            }
+        }
+    }
+    /*Redes escritorio y tablet*/
+    &--redes {
+        position: relative;
+        float: left;
+        margin: 15px;
+        img {
+            height: 100%;
+        }
+        &--cont {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            min-height: 38px;
+            background: rgba(255,255,255,0.8);
+            overflow: hidden;
+            &::after {
+                content: '';
+                display: block;
+                float: none;
+                clear: both;
+            }
+            .rss {
+                width: 32px;
+                float: left;
+                height: 100%;
+                display: block;
+                position: relative;
+            }
+            p {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 47px;
+                transform: translate(0, -50%);
+                padding-right: 10px;
+            }
+            a, button {
+                font-family: Cooper-Bold;
+                background: transparent;
+                border: none;
+            }
+        }
+        &__twitt {
+            .rss {
+                background: url(../img/icon-twitt.svg) center 8px no-repeat $twitter;
+            }
+            a {
+                color: $twitter;
+            }
+        }
+        &__face {
+            .rss {
+                background: url(../img/icon-face.svg) center 8px no-repeat $facebook;
+            }
+            a {
+                color: $facebook;
+            }
+        }
+        &__youtube {
+            .rss {
+                background: url(../img/icon-yout.svg) center 8px no-repeat $youtube;
+                svg {
+                    top: 8px;
+                }
+            }
+            a, button {
+                color: $youtube;
+            }
+            p {
+                font-weight: bold;
+            }
+        }
+        /*redes*/
+        @include less-than(desktop) {
+            margin: 8px;
+        }
+    }
+}
+.btn--flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    padding-top: 20px;
+    a, button {
+        margin: 0 10px;
+        margin-top: 0 !important;
+        padding: 0;
+    }
+}
+.lightbox__video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, .8);
+    z-index: $level10;
+    display: none;
+}
+.lightbox__container {
+    background: white;
+    @include center;
+    max-width: 1200px;
+    width: 94%;
+    @include respond-to(tablet) {
+        width: 80%;
+    }
+    .content {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+    }
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+.lightbox__close {
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: white;
+    }
+}

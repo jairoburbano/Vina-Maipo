@@ -1,0 +1,181 @@
+/*------------------------------------*\
+$BREADCRUMBS
+\*------------------------------------*/
+.banner {
+    .buscador {
+        width: auto;
+        margin-top: 100px;
+        line-height: cr(40px);
+        cursor: pointer;
+        outline: none;
+        padding: 0 15px;
+        svg {
+            fill: white;
+            margin: 8px 10px;
+            width: 20px;
+            height: 20px;
+            float: right;
+            transition: all 300ms;
+            display: block;
+        }
+        &:hover {
+            svg {
+                fill: $principal;
+            }
+        }
+        @include less-than(tablet) {
+            height: 42px !important;
+            margin-top: 60px;
+        }
+    }
+}
+//Lightbox buscador
+.light-search {
+    max-width: 600px;
+    width: 100%;
+    max-height: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 10px;
+    z-index: $level12 !important;
+    h2 {
+        font-size: cr(48px);
+        margin-bottom: 5px;
+        color: $principal;
+        text-align: left;
+        @include less-than(tablet) {
+            line-height: cr(50px);
+        }
+    }
+    .form-search {
+        .input-group {
+            position: relative;
+            height: 42px;
+            margin-bottom: 15px;
+            .search-bar {
+                height: 42px;
+                background: rgb(243, 245, 245);
+                color: $principal;
+                padding-right: 42px;
+                font-family: Cooper-Semibold;
+                font-size: cr(16px);
+                line-height: cr(42px);
+            }
+            .search-icon {
+                width: 42px;
+                height: 42px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0;
+                input {
+                    position: relative;
+                    z-index: 2;
+                }
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    z-index: 1;
+                    transition: all 300ms;
+                    fill: $principal;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                &:hover {
+                    svg {
+                        fill: lighten($principal, 30%);
+                    }
+                }
+            }
+        }
+    }
+    .resultado {
+        height: 290px;
+        overflow-y: auto;
+        &--item {
+            height: 72px;
+            width: 100%;
+            background: $lightergray;
+            position: relative;
+            display: block;
+            margin: 5px 0;
+            transition: all 300ms;
+            &--image {
+                width: 72px;
+                height: 72px;
+                overflow: hidden;
+                display: block;
+                background: #ccc;
+                img {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            &--text{
+                width: 100%;
+                position: absolute;
+                left: 0;
+                padding-left: 82px;
+                top: 50%;
+                transform: translate(0, -50%);
+                color: $principal;
+                transition: all 300ms;
+                font-size: cr(18px);
+                @include less-than(tablet) {
+                    font-size: cr(14px);
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: (72px-12);
+                transform: translate(0, -50%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 12px 12px 12px 0;
+                border-color: transparent $lightergray transparent transparent;
+                transition: all 300ms;
+                @include less-than(tablet) {
+                    left: -61px;
+                }
+            }
+            &:hover {
+                background: $hover;
+                .resultado--item--text {
+                    color: white;
+                }
+                &::before {
+                    border-color: transparent $hover transparent transparent;
+                }
+            }
+            &.nohover {
+                background: $lightergray;
+                .resultado--item--text {
+                    color: $principal;
+                    padding: 0;
+                    text-align: center;
+                } 
+                &::before {
+                    border-color: transparent transparent transparent transparent;
+                }
+            }
+        }
+    }
+    /*Lightbox search*/
+    @include less-than(tablet) {
+        max-height: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding: 40px 10px;
+        .resultado {
+            height: auto;
+        }
+    }
+}

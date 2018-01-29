@@ -1,0 +1,126 @@
+/*------------------------------------*\
+$BTN
+\*------------------------------------*/
+.btn {
+    line-height: cr(42px);
+    color: white;
+    width: 200px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    outline: none;
+    font-size: cr(16px);
+    transition: all 300ms;
+    font-family: Cooper-Medium;
+    &__border {
+        border: 2px solid white;
+        height: 38px;
+        line-height: cr(36px);
+        background-color: transparent;
+        &.big {
+            height: 42px;
+            line-height: cr(40px);
+        }
+        &.bigger {
+            height: 48px;
+            line-height: cr(46px);
+        }
+        &:hover {
+            background: white;
+            color: $principal;
+        }
+    }
+    &.btn--up {
+        width: 100%;
+        height: 42px;
+        line-height: cr(42px);
+        font-size: cr(14px);
+        color: white;
+        background: $hover;
+        cursor: pointer;
+        padding: 0 30px;
+        text-align: left;
+        display: none;
+        z-index: $level8;
+        transition: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        @include respond-to(tablet) {
+            width: 200px;
+            left: 30px;
+            font-size: cr(16px);
+            padding: 0 15px;
+        }
+        &.stopHere {
+            position: absolute;
+            bottom: 357px;
+            @include respond-to(tablet) {
+                bottom: 252px;
+            }
+            @include respond-to(desktop) {
+                bottom: 160px;
+            }
+        }
+        &::after {
+            content: '';
+            width: 12px;
+            height: 7px;
+            position: absolute;
+            top: 17.5px;
+            right: 30px;
+            background: url(../img/goup.svg) no-repeat;
+            @include respond-to(tablet) {
+                right: 15px;
+            }
+        }
+    }
+    &__contrast {
+        border-color: $principal;
+        color: $principal;
+        &:hover {
+            background: $principal;
+            color: white;
+        }
+    }
+    @include less-than(tablet) {
+        font-size: cr(14px);
+        width: 130px;
+        &__border {
+            height: 36px;
+            line-height: cr(32px);
+        }
+    }
+}
+//Touch sin hover
+.touch {
+    .btn {
+        &__border {
+            &:hover {
+                background-color: transparent;
+                color: white;
+            }
+        }
+        &__contrast {
+            &:hover {
+                background-color: transparent;
+                color: $principal;
+            }
+        }
+    }
+}
+.btn--tienda {
+    background: $contraste;
+    height: 38px;
+    width: 160px;
+    line-height: 38px;
+    font-family: Cooper-Semibold;
+    margin-top: 10px;
+    @include respond-to(desktop) {
+        margin: 0;
+        transition: all 300ms;
+        &:hover {
+            background: darken($contraste, 10%);
+        }
+    }
+}
